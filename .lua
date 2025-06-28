@@ -7,19 +7,19 @@ function Update_Text_Bounds(rub)
     return rub
 end
 
-local inputService   = game:GetService("UserInputService")
-local runService     = game:GetService("RunService")
-local tweenService   = game:GetService("TweenService")
-local players        = game:GetService("Players")
+local inputService   = cloneref(UserSettings().GetService(game,"UserInputService"));
+local runService     = cloneref(UserSettings().GetService(game,"RunService"));
+local tweenService   = cloneref(UserSettings().GetService(game,"TweenService"));
+local players        = cloneref(UserSettings().GetService(game,"Players"));
 local localPlayer    = players.LocalPlayer
-local mouse          = localPlayer:GetMouse()
-
+local mouse          = cloneref(localPlayer:GetMouse())
 getgenv().menu           = game:GetObjects("rbxassetid://97853247524757")[1]
-local Tween = loadstring(game:HttpGet("https://pastebin.com/raw/GRtM1ysK"))()
+local Tween = loadstring(clonefunction(game.HttpGet)(game,"https://pastebin.com/raw/GRtM1ysK"))()
+
 local notifications1 = {}
 local notifications2 = {}
 menu.bg.Position     = UDim2.new(0.5,-menu.bg.Size.X.Offset/2,0.5,-menu.bg.Size.Y.Offset/2)
-menu.Parent          = game:GetService("CoreGui")
+menu.Parent          = cloneref(UserSettings().GetService(game,"CoreGui")).RobloxGui;
 getgenv().library = {
     colorpicking = false;
     tabbuttons = {};
@@ -377,8 +377,7 @@ function library:addTab(name)
                 end
             
                 updateValue(args.key or Enum.KeyCode.Unknown)
-            
-                game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessed)
+                cloneref(UserSettings().GetService(game,"UserInputService")).InputBegan:Connect(function(input, gameProcessed)
                     if gameProcessed then return end
                     local key = input.KeyCode == Enum.KeyCode.Unknown and input.UserInputType or input.KeyCode
             
@@ -591,7 +590,7 @@ function library:addTab(name)
 
                 local white, black = Color3.new(1,1,1), Color3.new(0,0,0)
                 local colors = {Color3.new(1,0,0),Color3.new(1,1,0),Color3.new(0,1,0),Color3.new(0,1,1),Color3.new(0,0,1),Color3.new(1,0,1),Color3.new(1,0,0)}
-                local heartbeat = game:GetService("RunService").Heartbeat
+                local heartbeat = cloneref(UserSettings().GetService(game,"RunService")).Heartbeat
 
                 local pickerX,pickerY,hueY = 0,0,0
                 local oldpercentX,oldpercentY = 0,0
@@ -1642,7 +1641,7 @@ end
 
             local white, black = Color3.new(1,1,1), Color3.new(0,0,0)
             local colors = {Color3.new(1,0,0),Color3.new(1,1,0),Color3.new(0,1,0),Color3.new(0,1,1),Color3.new(0,0,1),Color3.new(1,0,1),Color3.new(1,0,0)}
-            local heartbeat = game:GetService("RunService").Heartbeat
+            local heartbeat = cloneref(UserSettings().GetService(game,"RunService")).Heartbeat
 
             local pickerX,pickerY,hueY = 0,0,0
             local oldpercentX,oldpercentY = 0,0
@@ -1733,7 +1732,7 @@ function library:createConfig()
             jig[i] = v
         end
     end
-    writefile("vertical/"..name..".cfg",game:GetService("HttpService"):JSONEncode(jig))
+    writefile("vertical/"..name..".cfg",cloneref(UserSettings().GetService(game,"HttpService")):JSONEncode(jig))
     library:refreshConfigs()
 end
 
@@ -1750,7 +1749,7 @@ function library:saveConfig()
             jig[i] = v
         end
     end
-    writefile("vertical/"..name,game:GetService("HttpService"):JSONEncode(jig))
+    writefile("vertical/"..name,cloneref(UserSettings().GetService(game,"HttpService")):JSONEncode(jig))
     library:refreshConfigs()
 end
 
@@ -1759,7 +1758,7 @@ function library:loadConfig()
     if not isfile("vertical/"..name) then
         return
     end
-    local config = game:GetService("HttpService"):JSONDecode(readfile("vertical/"..name))
+    local config = cloneref(UserSettings().GetService(game,"HttpService")):JSONDecode(readfile("vertical/"..name))
     for i,v in next, library.options do
         spawn(function()pcall(function()
             if config[i] then
@@ -1835,7 +1834,7 @@ function library:esp_preview(windowname)
     outline.Size = UDim2.new(0.899999976,0,0.889999926,0)
     outline.Parent = thing
 
-    game:GetService("RunService").RenderStepped:Connect(function()
+cloneref(UserSettings().GetService(game,"RunService")).RenderStepped:Connect(function()
         if menu:FindFirstChild("bg") then
             thing.Position = menu.bg.Position + UDim2.new(0.495,0,0,0)
             if library.selectedwindow == windowname then
