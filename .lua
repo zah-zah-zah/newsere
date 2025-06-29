@@ -263,7 +263,7 @@ function library:addTab(name)
             text.TextXAlignment = Enum.TextXAlignment.Left
 
             if args.risky then
-                text.TextColor3 = Color3.fromRGB(222, 0, 0)
+                text.TextColor3 = Color3.fromRGB(150, 0, 0)
             else
                 text.TextColor3 = Color3.fromRGB(155, 155, 155)
             end
@@ -300,7 +300,7 @@ function library:addTab(name)
                 library.flags[args.flag] = state
                 text.TextColor3 = state and Color3.fromRGB(244, 244, 244) or Color3.fromRGB(144, 144, 144)
                 if args.risky then
-                    text.TextColor3 = Color3.fromRGB(222, 0, 0)
+                    text.TextColor3 = Color3.fromRGB(150, 0, 0)
                 else
                     text.TextColor3 = Color3.fromRGB(155, 155, 155)
                 end
@@ -318,7 +318,7 @@ function library:addTab(name)
                 text.TextColor3 = state and Color3.fromRGB(244, 244, 244) or Color3.fromRGB(144, 144, 144)
 
                 if args.risky then
-                    text.TextColor3 = Color3.fromRGB(222, 0, 0)
+                    text.TextColor3 = Color3.fromRGB(150, 0, 0)
                 else
                     text.TextColor3 = Color3.fromRGB(155, 155, 155)
                 end
@@ -812,7 +812,7 @@ end
             valuetext.TextStrokeTransparency = 0.000
 
             if args.risky then
-                text.TextColor3 = Color3.fromRGB(222, 0, 0)
+                text.TextColor3 = Color3.fromRGB(150, 0, 0)
             else
                 text.TextColor3 = Color3.fromRGB(155, 155, 155)
             end
@@ -851,7 +851,7 @@ end
                 valuetext.Text = value..args.suffix
                 library.flags[args.flag] = value
                 if args.risky then
-                    text.TextColor3 = Color3.fromRGB(222, 0, 0)
+                    text.TextColor3 = Color3.fromRGB(150, 0, 0)
                 else
                     text.TextColor3 = Color3.fromRGB(155, 155, 155)
                 end
@@ -899,7 +899,7 @@ end
                 library:Tween(main, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BorderColor3 = Color3.fromRGB(60, 60, 60)})
 			end)
             if args.risky then
-                text.TextColor3 = Color3.fromRGB(222, 0, 0)
+                text.TextColor3 = Color3.fromRGB(150, 0, 0)
             else
                 text.TextColor3 = Color3.fromRGB(155, 155, 155)
             end
