@@ -13,7 +13,7 @@ local tweenService   = cloneref(UserSettings().GetService(game,"TweenService"));
 local players        = cloneref(UserSettings().GetService(game,"Players"));
 local localPlayer    = players.LocalPlayer
 local mouse          = cloneref(localPlayer:GetMouse())
-getgenv().menu           = game:GetObjects("rbxassetid://135115638549167")[1]
+getgenv().menu           = game:GetObjects("rbxassetid://12702460854")[1]
 local Tween = loadstring(clonefunction(game.HttpGet)(game,"https://pastebin.com/raw/GRtM1ysK"))()
 
 local notifications1 = {}
